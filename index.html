@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI Critique - Software Configuration Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Software Configuration Management Demo</h1>
+            <p>CI/CD, Version Control, and Quality Checks</p>
+        </header>
+        
+        <main>
+            <section class="ugly-ui-section">
+                <h2>The Ugliest UI I've Ever Seen: gpsGuide</h2>
+                <div class="ui-critique">
+                    <div class="screenshot-container">
+                        <img src="ugly-ui.jpg" alt="Terrible gpsGuide UI showing cluttered GPS coordinates and confusing layout" class="ugly-ui-image">
+                        <p class="caption">Actual gpsGuide UI showing poor design and information hierarchy</p>
+                    </div>
+                    
+                    <div class="critique-content">
+                        <h3>What's Wrong With This UI:</h3>
+                        <ul>
+                            <li><strong>Poor Information Hierarchy:</strong> No clear visual structure or grouping</li>
+                            <li><strong>Inconsistent Labeling:</strong> "Latitude/Longitude" appears multiple times with different meanings</li>
+                            <li><strong>Confusing Data Presentation:</strong> Coordinate formats mixed with random data points</li>
+                            <li><strong>Cluttered Layout:</strong> Too much information dumped without organization</li>
+                            <li><strong>Unclear Purpose:</strong> What is DEST vs ORIGIN vs Current Location?</li>
+                            <li><strong>Bad Typography:</strong> Monospace font, inconsistent headings, poor spacing</li>
+                            <li><strong>Non-Standard Controls:</strong> Unconventional button arrangement</li>
+                            <li><strong>Technical Jargon:</strong> "Atti", "#updates" without clear explanations</li>
+                        </ul>
+                        
+                        <h3>How I Would Improve It:</h3>
+                        <ul>
+                            <li><strong>Clear Information Architecture:</strong> Group related data into logical sections (Current Location, Destination, Navigation)</li>
+                            <li><strong>Visual Hierarchy:</strong> Use proper headings, spacing, and visual grouping with cards or sections</li>
+                            <li><strong>Standard Coordinate Format:</strong> Use consistent decimal degrees or provide conversion options</li>
+                            <li><strong>Map Integration:</strong> Show locations on an actual map visualization instead of just coordinates</li>
+                            <li><strong>Progressive Disclosure:</strong> Hide advanced technical data behind expandable sections</li>
+                            <li><strong>Consistent Styling:</strong> Use modern UI patterns, proper contrast, and intuitive icons</li>
+                            <li><strong>Action-Oriented Design:</strong> Make primary actions (Start Navigation, Save Location) more prominent</li>
+                            <li><strong>Real-time Visualization:</strong> Show movement and bearing with visual arrows/graphics instead of text warnings</li>
+                            <li><strong>User-Friendly Labels:</strong> Replace technical terms like "Atti" with "Altitude" and "#updates" with "GPS Updates"</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="tech-demo">
+                <h2>Technical Implementation</h2>
+                <div class="demo-info">
+                    <p>This site demonstrates:</p>
+                    <ul>
+                        <li>GitHub Pages hosting</li>
+                        <li>GitHub Actions CI/CD pipeline</li>
+                        <li>ESLint quality checks</li>
+                        <li>Automated deployment on push</li>
+                    </ul>
+                    <button id="demoButton" class="demo-button">Click to Test JavaScript</button>
+                    <p id="demoMessage"></p>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>SCM Demo - CI/CD with Quality Gates | Ugly UI: gpsGuide</p>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
