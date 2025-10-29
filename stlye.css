@@ -5,9 +5,9 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: #333;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.7;
+    color: #2d3748;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;
 }
@@ -15,141 +15,293 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 40px 20px;
 }
 
 header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
     color: white;
 }
 
 header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    background: linear-gradient(45deg, #fff, #e0e7ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 header p {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     opacity: 0.9;
+    font-weight: 300;
 }
 
 main {
-    background: white;
-    border-radius: 15px;
-    padding: 30px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 50px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
 }
 
-.ugly-ui-section h2 {
-    color: #e74c3c;
-    margin-bottom: 20px;
+.section-header {
     text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-header h2 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #1a202c;
+    margin-bottom: 15px;
+}
+
+.divider {
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    margin: 0 auto;
+    border-radius: 2px;
 }
 
 .ui-critique {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    margin-bottom: 30px;
+    grid-template-columns: 350px 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
 }
 
 .screenshot-container {
     text-align: center;
 }
 
+.image-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
 .ugly-ui-image {
     width: 100%;
-    max-width: 600px;
-    border: 3px solid #e74c3c;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    max-width: 320px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.image-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: linear-gradient(45deg, #e53e3e, #c53030);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
 .caption {
-    margin-top: 10px;
+    margin-top: 15px;
     font-style: italic;
-    color: #666;
+    color: #718096;
     font-size: 0.9rem;
 }
 
-.critique-content h3 {
-    color: #2c3e50;
-    margin: 20px 0 10px 0;
+.critique-content {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
 }
 
-.critique-content ul {
-    list-style-position: outside;
-    margin-left: 20px;
+.critique-card {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    border: 1px solid #e2e8f0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.critique-content li {
-    margin-bottom: 8px;
-    padding-left: 5px;
+.critique-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
+
+.card-header h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.card-header.bad h3 {
+    color: #e53e3e;
+}
+
+.card-header.good h3 {
+    color: #38a169;
+}
+
+.critique-card ul {
+    list-style: none;
+}
+
+.critique-card li {
+    margin-bottom: 12px;
+    padding-left: 0;
+    position: relative;
+    padding-left: 20px;
+}
+
+.critique-card li:before {
+    content: "•";
+    color: #667eea;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.critique-card strong {
+    color: #2d3748;
+    font-weight: 600;
 }
 
 .tech-demo {
-    border-top: 2px solid #bdc3c7;
-    padding-top: 30px;
+    margin-top: 50px;
 }
 
-.tech-demo h2 {
-    color: #2c3e50;
-    margin-bottom: 20px;
+.demo-card {
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
     text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    border: 1px solid #e2e8f0;
 }
 
-.demo-info {
-    text-align: center;
+.demo-intro {
+    font-size: 1.2rem;
+    color: #4a5568;
+    margin-bottom: 30px;
+    font-weight: 500;
 }
 
-.demo-info ul {
-    list-style-position: inside;
-    margin: 20px 0;
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin: 40px 0;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 20px;
+    background: #f7fafc;
+    border-radius: 12px;
+    font-weight: 500;
+    color: #2d3748;
+    transition: all 0.3s ease;
+    border: 1px solid #e2e8f0;
+}
+
+.feature-item:hover {
+    background: #edf2f7;
+    transform: translateY(-2px);
+}
+
+.feature-icon {
+    font-size: 1.4rem;
+}
+
+.demo-action {
+    margin-top: 30px;
 }
 
 .demo-button {
-    background: #3498db;
+    background: linear-gradient(45deg, #667eea, #764ba2);
     color: white;
     border: none;
-    padding: 12px 24px;
-    border-radius: 25px;
+    padding: 16px 32px;
+    border-radius: 50px;
     font-size: 1.1rem;
+    font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin: 10px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
 }
 
 .demo-button:hover {
-    background: #2980b9;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
 }
 
-#demoMessage {
-    margin-top: 15px;
-    font-weight: bold;
-    color: #27ae60;
+.demo-message {
+    min-height: 24px;
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 1.1rem;
 }
 
 footer {
     text-align: center;
-    margin-top: 40px;
+    margin-top: 60px;
     color: white;
-    opacity: 0.8;
 }
 
-@media (max-width: 768px) {
+.footer-content p {
+    margin-bottom: 8px;
+}
+
+.footer-note {
+    opacity: 0.8;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 968px) {
     .ui-critique {
         grid-template-columns: 1fr;
-    }
-    
-    header h1 {
-        font-size: 2rem;
+        gap: 30px;
     }
     
     .ugly-ui-image {
-        max-width: 100%;
+        max-width: 280px;
+    }
+    
+    header h1 {
+        font-size: 2.2rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .container {
+        padding: 20px 15px;
+    }
+    
+    main {
+        padding: 30px 20px;
+    }
+    
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .critique-card {
+        padding: 20px;
     }
 }

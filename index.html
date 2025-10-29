@@ -5,70 +5,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UI Critique - Software Configuration Management</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Software Configuration Management Demo</h1>
-            <p>CI/CD, Version Control, and Quality Checks</p>
+            <h1>Software Configuration Management</h1>
+            <p>Enterprise CI/CD • Version Control • Quality Assurance</p>
         </header>
         
         <main>
             <section class="ugly-ui-section">
-                <h2>The Ugliest UI I've Ever Seen: gpsGuide</h2>
+                <div class="section-header">
+                    <h2>UI/UX Analysis: gpsGuide Case Study</h2>
+                    <div class="divider"></div>
+                </div>
+                
                 <div class="ui-critique">
                     <div class="screenshot-container">
-                        <img src="/assets/ugly-ui.png" alt="Terrible gpsGuide UI showing cluttered GPS coordinates and confusing layout" class="ugly-ui-image">
-                        <p class="caption">Actual gpsGuide UI showing poor design and information hierarchy</p>
+                        <div class="image-wrapper">
+                            <img src="/assets/ugly-ui.png" alt="gpsGuide UI analysis" class="ugly-ui-image">
+                        </div>
                     </div>
                     
-                    <div class="critique-content">
-                        <h3>What's Wrong With This UI:</h3>
+                    <div class="critique-card">
+                        <div class="card-header bad">
+                            <h3>❌ Critical UX Failures</h3>
+                        </div>
                         <ul>
-                            <li><strong>Poor Information Hierarchy:</strong> No clear visual structure or grouping</li>
-                            <li><strong>Inconsistent Labeling:</strong> "Latitude/Longitude" appears multiple times with different meanings</li>
-                            <li><strong>Confusing Data Presentation:</strong> Coordinate formats mixed with random data points</li>
-                            <li><strong>Cluttered Layout:</strong> Too much information dumped without organization</li>
-                            <li><strong>Unclear Purpose:</strong> What is DEST vs ORIGIN vs Current Location?</li>
-                            <li><strong>Bad Typography:</strong> Monospace font, inconsistent headings, poor spacing</li>
-                            <li><strong>Non-Standard Controls:</strong> Unconventional button arrangement</li>
-                            <li><strong>Technical Jargon:</strong> "Atti", "#updates" without clear explanations</li>
+                            <li><strong>Confusing Branding:</strong> "Pacific Northwest Maryland" geographic contradiction</li>
+                            <li><strong>Poor Visual Hierarchy:</strong> No clear categories or grouping of products</li>
+                            <li><strong>Inconsistent Formatting:</strong> Mixed bullet styles and random line breaks</li>
+                            <li><strong>Unprofessional Presentation:</strong> Looks like raw notes instead of designed interface</li>
+                            <li><strong>No Visual Elements:</strong> Pure text with no images, icons, or color</li>
+                            <li><strong>Weak Information Architecture:</strong> Medical products scattered without logical order</li>
+                            <li><strong>Missing Navigation:</strong> No search functionality despite "Search for X-Ray Products" header</li>
+                            <li><strong>Poor Readability:</strong> Dense text blocks with inadequate spacing</li>
                         </ul>
-                        
-                        <h3>How I Would Improve It:</h3>
+                    </div>
+
+                    <div class="critique-card">
+                        <div class="card-header good">
+                            <h3>✅ Proposed Solutions</h3>
+                        </div>
                         <ul>
-                            <li><strong>Clear Information Architecture:</strong> Group related data into logical sections (Current Location, Destination, Navigation)</li>
-                            <li><strong>Visual Hierarchy:</strong> Use proper headings, spacing, and visual grouping with cards or sections</li>
-                            <li><strong>Standard Coordinate Format:</strong> Use consistent decimal degrees or provide conversion options</li>
-                            <li><strong>Map Integration:</strong> Show locations on an actual map visualization instead of just coordinates</li>
-                            <li><strong>Progressive Disclosure:</strong> Hide advanced technical data behind expandable sections</li>
-                            <li><strong>Consistent Styling:</strong> Use modern UI patterns, proper contrast, and intuitive icons</li>
-                            <li><strong>Action-Oriented Design:</strong> Make primary actions (Start Navigation, Save Location) more prominent</li>
-                            <li><strong>Real-time Visualization:</strong> Show movement and bearing with visual arrows/graphics instead of text warnings</li>
-                            <li><strong>User-Friendly Labels:</strong> Replace technical terms like "Atti" with "Altitude" and "#updates" with "GPS Updates"</li>
+                            <li><strong>Clear Brand Identity:</strong> Resolve geographic confusion with proper company name</li>
+                            <li><strong>Visual Product Categories:</strong> Group related items with icons and card-based layout</li>
+                            <li><strong>Implement Actual Search:</strong> Functional search bar with filters and suggestions</li>
+                            <li><strong>Professional Typography:</strong> Consistent hierarchy with proper headings and spacing</li>
+                            <li><strong>Product Imagery:</strong> Add relevant images for each medical equipment category</li>
+                            <li><strong>Grid Layout:</strong> Organized product display with clear categories (Protective Gear, Test Tools, etc.)</li>
+                            <li><strong>Color & Branding:</strong> Professional color scheme reflecting medical/industrial sector</li>
+                            <li><strong>Mobile Responsive:</strong> Adaptive design for different screen sizes</li>
                         </ul>
                     </div>
                 </div>
             </section>
             
             <section class="tech-demo">
-                <h2>Technical Implementation</h2>
-                <div class="demo-info">
-                    <p>This site demonstrates:</p>
-                    <ul>
-                        <li>GitHub Pages hosting</li>
-                        <li>GitHub Actions CI/CD pipeline</li>
-                        <li>ESLint quality checks</li>
-                        <li>Automated deployment on push</li>
-                    </ul>
-                    <button id="demoButton" class="demo-button">Click to Test JavaScript</button>
-                    <p id="demoMessage"></p>
+                <div class="section-header">
+                    <h2>Technical Implementation</h2>
+                    <div class="divider"></div>
+                </div>
+                
+                <div class="demo-card">
+                    <p class="demo-intro">Enterprise-grade software configuration management pipeline</p>
+                    
+                    <div class="feature-grid">
+                        <div class="feature-item">
+                            <span class="feature-icon">🌐</span>
+                            <span>GitHub Pages Hosting</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🔁</span>
+                            <span>CI/CD Pipeline</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🔍</span>
+                            <span>Code Quality Gates</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🚀</span>
+                            <span>Auto Deployment</span>
+                        </div>
+                    </div>
+                    
+                    <div class="demo-action">
+                        <button id="demoButton" class="demo-button">Test JavaScript Execution</button>
+                        <p id="demoMessage" class="demo-message"></p>
+                    </div>
                 </div>
             </section>
         </main>
         
         <footer>
-            <p>SCM Demo - CI/CD with Quality Gates | Ugly UI: gpsGuide</p>
+            <div class="footer-content">
+                <p>SCM Demo • CI/CD with Quality Gates • UI/UX Analysis</p>
+                <p class="footer-note">Built with GitHub Actions & Automated Quality Checks</p>
+            </div>
         </footer>
     </div>
     
