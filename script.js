@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // This line intentionally has a missing semicolon to test ESLint
     // Remove the semicolon below to break the build:
-    const testVariable = 'ESLint test' // Add semicolon here
+    const testVariable = 'ESLint test'; // Add semicolon here
 });
 
 // Function to demonstrate code quality
