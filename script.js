@@ -1,10 +1,12 @@
-// Export functions for testing
-module.exports = {
-    demoFunction,
-    calculateUXScore,
-    formatUIFeedback,
-    fakeFailingTest
-};
+// Export functions for testing (only for Jest - won't run in browser)
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = {
+        demoFunction,
+        calculateUXScore,
+        formatUIFeedback,
+        fakeFailingTest
+    };
+}
 
 // Your existing JavaScript functions
 function demoFunction() {
@@ -21,234 +23,313 @@ function formatUIFeedback(issue, severity) {
     return `Issue: ${issue} (Severity: ${severity})`;
 }
 
-// This function returns false intentionally to demonstrate a failing test
 function fakeFailingTest() {
-    return false; // Should return true to pass the test
+    return false;
 }
 
-// Your existing DOM manipulation code
-window.addEventListener('scroll', function() {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-});
+// ==================== SIMPLE VISUAL EFFECTS ====================
 
-document.getElementById('demoButton')?.addEventListener('click', function() {
-    const message = document.getElementById('demoMessage');
-    if (message) {
-        message.textContent = '✅ JavaScript is working correctly! Interactive features are functional.';
-        setTimeout(() => {
-            message.textContent = '';
-        }, 3000);
-    }
-});
-
-// Browser test simulation
-document.getElementById('runTests')?.addEventListener('click', function() {
-    const results = document.getElementById('testResults');
-    if (results) {
-        results.innerHTML = `
-            <div style="text-align: left;">
-                <p><strong>Running Jest Tests...</strong></p>
-                <p>✅ demoFunction exists - PASS</p>
-                <p>✅ demoFunction returns correct value - PASS</p>
-                <p>✅ calculateUXScore calculates correctly - PASS</p>
-                <p>✅ formatUIFeedback formats correctly - PASS</p>
-                <p>❌ fakeFailingTest - FAIL (Expected: true, Received: false)</p>
-                <p><strong>Result: 4 passed, 1 failed</strong></p>
-                <p style="margin-top: 15px; color: #dc3545;">GitHub Actions will block deployment until all tests pass!</p>
-            </div>
+// 1. Add a rainbow gradient to the header text
+function rainbowHeader() {
+    const header = document.querySelector('.header-content h1');
+    if (header) {
+        header.style.background = 'linear-gradient(45deg, #FF0000, #FF7F00, #FFFF00, #00FF00, #0000FF, #4B0082, #8B00FF)';
+        header.style.webkitBackgroundClip = 'text';
+        header.style.webkitTextFillColor = 'transparent';
+        header.style.backgroundSize = '400% 400%';
+        header.style.animation = 'rainbow 3s ease infinite';
+        
+        // Add the animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes rainbow {
+                0% { background-position: 0% 50% }
+                50% { background-position: 100% 50% }
+                100% { background-position: 0% 50% }
+            }
         `;
+        document.head.appendChild(style);
         
-        // Reset after 5 seconds
-        setTimeout(() => {
-            results.innerHTML = `
-                <p><strong>Test Functions Available:</strong></p>
-                <p>✅ demoFunction() - Returns welcome message</p>
-                <p>✅ calculateUXScore(issues) - Calculates UX score</p>
-                <p>✅ formatUIFeedback(issue, severity) - Formats feedback</p>
-                <p>❌ fakeFailingTest() - Intentionally fails (returns false)</p>
+        console.log('🌈 Rainbow header applied!');
+    }
+}
+
+// 2. Add floating animation to cards
+function floatCards() {
+    const cards = document.querySelectorAll('.critique-card, .demo-card');
+    cards.forEach((card, index) => {
+        card.style.animation = `float 3s ease-in-out ${index * 0.2}s infinite`;
+    });
+    
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+    `;
+    document.head.appendChild(style);
+    
+    console.log('🎈 Floating cards applied!');
+}
+
+// 3. Add click effects to buttons
+function addButtonEffects() {
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            // Create ripple effect
+            const ripple = document.createElement('span');
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+            
+            ripple.style.cssText = `
+                position: absolute;
+                border-radius: 50%;
+                background: rgba(255,255,255,0.6);
+                transform: scale(0);
+                animation: ripple 600ms linear;
+                width: ${size}px;
+                height: ${size}px;
+                left: ${x}px;
+                top: ${y}px;
+                pointer-events: none;
             `;
-        }, 5000);
-    }
-});
-
-// Add unique eye-catching function - Floating particles animation
-function createFloatingParticles() {
-    const colors = ['#4361ee', '#7209b7', '#4cc9f0', '#f72585'];
-    const container = document.querySelector('header');
+            
+            this.style.position = 'relative';
+            this.style.overflow = 'hidden';
+            this.appendChild(ripple);
+            
+            setTimeout(() => {
+                if (ripple.parentNode) {
+                    ripple.remove();
+                }
+            }, 600);
+        });
+    });
     
-    if (!container) return;
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+    `;
+    document.head.appendChild(style);
     
-    for (let i = 0; i < 15; i++) {
-        const particle = document.createElement('div');
-        particle.style.position = 'absolute';
-        particle.style.width = '4px';
-        particle.style.height = '4px';
-        particle.style.background = colors[Math.floor(Math.random() * colors.length)];
-        particle.style.borderRadius = '50%';
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.top = Math.random() * 100 + '%';
-        particle.style.opacity = '0.7';
-        particle.style.pointerEvents = 'none';
-        particle.style.zIndex = '1';
-        container.appendChild(particle);
-        
-        animateParticle(particle);
-    }
+    console.log('🌊 Button ripple effects applied!');
 }
 
-function animateParticle(particle) {
-    let x = parseFloat(particle.style.left);
-    let y = parseFloat(particle.style.top);
-    let xSpeed = (Math.random() - 0.5) * 0.3;
-    let ySpeed = (Math.random() - 0.5) * 0.3;
-    
-    function move() {
-        x += xSpeed;
-        y += ySpeed;
-        
-        // Bounce off edges
-        if (x < 0 || x > 100) xSpeed *= -1;
-        if (y < 0 || y > 100) ySpeed *= -1;
-        
-        // Keep particles within bounds
-        x = Math.max(0, Math.min(100, x));
-        y = Math.max(0, Math.min(100, y));
-        
-        particle.style.left = x + '%';
-        particle.style.top = y + '%';
-        
-        requestAnimationFrame(move);
-    }
-    move();
-}
-
-// Additional eye-catching function - Typewriter effect for header
+// 4. Add typewriter effect to header
 function typewriterEffect() {
-    const headerText = document.querySelector('.header-content h1');
-    if (!headerText) return;
+    const header = document.querySelector('.header-content h1');
+    if (!header) return;
     
-    const originalText = headerText.textContent;
-    headerText.textContent = '';
+    const text = header.textContent;
+    header.textContent = '';
+    header.style.borderRight = '2px solid white';
     let i = 0;
     
     function type() {
-        if (i < originalText.length) {
-            headerText.textContent += originalText.charAt(i);
+        if (i < text.length) {
+            header.textContent += text.charAt(i);
             i++;
-            setTimeout(type, 50);
+            setTimeout(type, 100);
+        } else {
+            header.style.borderRight = 'none';
         }
     }
-    
-    // Start typing after a short delay
     setTimeout(type, 1000);
+    
+    console.log('⌨️ Typewriter effect applied!');
 }
 
-// Interactive color theme switcher
-function createThemeSwitcher() {
-    const themeButton = document.createElement('button');
-    themeButton.innerHTML = '<i class="fas fa-palette"></i>';
-    themeButton.style.position = 'fixed';
-    themeButton.style.bottom = '20px';
-    themeButton.style.right = '20px';
-    themeButton.style.zIndex = '1000';
-    themeButton.style.background = 'var(--primary)';
-    themeButton.style.color = 'white';
-    themeButton.style.border = 'none';
-    themeButton.style.borderRadius = '50%';
-    themeButton.style.width = '50px';
-    themeButton.style.height = '50px';
-    themeButton.style.cursor = 'pointer';
-    themeButton.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
-    themeButton.style.fontSize = '1.2rem';
-    themeButton.style.transition = 'all 0.3s ease';
-    
-    themeButton.addEventListener('mouseenter', function() {
-        this.style.transform = 'scale(1.1)';
-    });
-    
-    themeButton.addEventListener('mouseleave', function() {
-        this.style.transform = 'scale(1)';
-    });
-    
-    let currentTheme = 0;
-    const themes = [
-        { primary: '#4361ee', secondary: '#7209b7' },
-        { primary: '#f72585', secondary: '#b5179e' },
-        { primary: '#4cc9f0', secondary: '#4895ef' },
-        { primary: '#38b000', secondary: '#007200' }
-    ];
-    
-    themeButton.addEventListener('click', function() {
-        currentTheme = (currentTheme + 1) % themes.length;
-        const theme = themes[currentTheme];
-        
-        document.documentElement.style.setProperty('--primary', theme.primary);
-        document.documentElement.style.setProperty('--secondary', theme.secondary);
-        
-        // Show theme change notification
-        showThemeNotification(`Theme ${currentTheme + 1} applied`);
-    });
-    
-    document.body.appendChild(themeButton);
-}
-
-function showThemeNotification(message) {
-    const notification = document.createElement('div');
-    notification.textContent = message;
-    notification.style.position = 'fixed';
-    notification.style.top = '20px';
-    notification.style.right = '20px';
-    notification.style.background = 'var(--primary)';
-    notification.style.color = 'white';
-    notification.style.padding = '10px 20px';
-    notification.style.borderRadius = '25px';
-    notification.style.zIndex = '1000';
-    notification.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
-    notification.style.fontWeight = '500';
-    notification.style.transform = 'translateX(100%)';
-    notification.style.transition = 'transform 0.3s ease';
-    
-    document.body.appendChild(notification);
-    
-    // Animate in
-    setTimeout(() => {
-        notification.style.transform = 'translateX(0)';
-    }, 100);
-    
-    // Animate out and remove
-    setTimeout(() => {
-        notification.style.transform = 'translateX(100%)';
-        setTimeout(() => {
-            document.body.removeChild(notification);
-        }, 300);
-    }, 2000);
-}
-
-// Run all functions on page load
-window.addEventListener('load', function() {
-    createFloatingParticles();
-    typewriterEffect();
-    createThemeSwitcher();
-    
-    // Initialize intersection observer for fade-in animations
+// 5. Add scroll animations
+function initScrollAnimations() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in');
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                entry.target.style.filter = 'blur(0px)';
             }
         });
     }, { threshold: 0.1 });
     
+    // Add initial styles for animated elements
     document.querySelectorAll('.fade-in').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.filter = 'blur(5px)';
+        el.style.transition = 'all 0.8s ease';
         observer.observe(el);
     });
     
-    // Console welcome message
-    console.log('%c🚀 UI Analysis Tool Loaded Successfully!', 'color: #4361ee; font-size: 16px; font-weight: bold;');
-    console.log('%c✨ Features: Floating particles, Typewriter effect, Theme switcher, Jest testing', 'color: #7209b7; font-size: 12px;');
+    console.log('📜 Scroll animations applied!');
+}
+
+// 6. Add background particles (simple version)
+function addParticles() {
+    const particlesContainer = document.createElement('div');
+    particlesContainer.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
+        overflow: hidden;
+    `;
+    
+    const colors = ['#4361ee', '#7209b7', '#4cc9f0', '#f72585', '#38b000'];
+    
+    for (let i = 0; i < 25; i++) {
+        const particle = document.createElement('div');
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        const size = Math.random() * 6 + 2;
+        const duration = Math.random() * 10 + 10;
+        
+        particle.style.cssText = `
+            position: absolute;
+            width: ${size}px;
+            height: ${size}px;
+            background: ${color};
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float-particle ${duration}s linear infinite;
+            left: ${Math.random() * 100}%;
+            top: ${Math.random() * 100}%;
+            animation-delay: ${Math.random() * 5}s;
+        `;
+        
+        particlesContainer.appendChild(particle);
+    }
+    
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes float-particle {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.4;
+            }
+            90% {
+                opacity: 0.4;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+    document.body.appendChild(particlesContainer);
+    
+    console.log('✨ Background particles applied!');
+}
+
+// 7. Add interactive cursor trail
+function addCursorTrail() {
+    const trail = document.createElement('div');
+    trail.style.cssText = `
+        position: fixed;
+        width: 20px;
+        height: 20px;
+        background: radial-gradient(circle, var(--primary), transparent);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 10000;
+        mix-blend-mode: difference;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    `;
+    document.body.appendChild(trail);
+    
+    document.addEventListener('mousemove', (e) => {
+        trail.style.left = (e.clientX - 10) + 'px';
+        trail.style.top = (e.clientY - 10) + 'px';
+        trail.style.opacity = '0.6';
+    });
+    
+    document.addEventListener('mouseleave', () => {
+        trail.style.opacity = '0';
+    });
+    
+    console.log('🖱️ Cursor trail applied!');
+}
+
+// Initialize everything when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('🚀 JavaScript loaded successfully! Starting effects...');
+    
+    // Run all effects with a small delay to ensure DOM is ready
+    setTimeout(() => {
+        rainbowHeader();
+        floatCards();
+        addButtonEffects();
+        typewriterEffect();
+        initScrollAnimations();
+        addParticles();
+        addCursorTrail();
+        
+        console.log('🎉 All visual effects initialized!');
+    }, 100);
+    
+    // Your existing demo button functionality
+    const demoButton = document.getElementById('demoButton');
+    if (demoButton) {
+        demoButton.addEventListener('click', function() {
+            const message = document.getElementById('demoMessage');
+            if (message) {
+                message.textContent = '✅ All JavaScript effects are working perfectly!';
+                message.style.color = '#38b000';
+                message.style.fontWeight = 'bold';
+                
+                // Add celebration effect
+                document.body.style.animation = 'celebrate 0.5s ease';
+                setTimeout(() => {
+                    document.body.style.animation = '';
+                }, 500);
+                
+                setTimeout(() => {
+                    message.textContent = '';
+                }, 3000);
+            }
+        });
+    }
+    
+    // Add celebration animation
+    const celebrationStyle = document.createElement('style');
+    celebrationStyle.textContent = `
+        @keyframes celebrate {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+    `;
+    document.head.appendChild(celebrationStyle);
+    
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (navbar) {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        }
+    });
+});
+
+// Global error handler
+window.addEventListener('error', function(e) {
+    console.error('JavaScript error:', e.error);
+    console.log('Error details:', e);
 });
