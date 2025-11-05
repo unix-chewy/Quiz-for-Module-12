@@ -4,7 +4,7 @@ const {
     calculateUXScore, 
     formatUIFeedback,
     fakeFailingTest 
-} = require('../script');
+} = require('../../script');
 
 // Passing tests
 describe('UI Analysis Functions', () => {
