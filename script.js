@@ -24,7 +24,7 @@ function formatUIFeedback(issue, severity) {
 }
 
 function fakeFailingTest() {
-    return false;
+    return true;
 }
 
 // ==================== SIMPLE VISUAL EFFECTS ====================
