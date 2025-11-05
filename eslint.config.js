@@ -1,20 +1,21 @@
 module.exports = [
     {
-        files: ["*.js"],
+        files: ["**/*.js"],  // Changed from "*.js" to "**/*.js"
         languageOptions: {
             ecmaVersion: 2022,
-            sourceType: "script",  // Changed from "module" to "script"
+            sourceType: "script",  // Must be "script" for CommonJS
             globals: {
                 window: "readonly",
                 document: "readonly",
                 console: "readonly",
                 module: "readonly",
-                require: "readonly"
+                require: "readonly",
+                process: "readonly"
             }
         },
         rules: {
             "semi": ["error", "always"],
-            "no-unused-vars": "warn", 
+            "no-unused-vars": "warn",
             "no-console": "warn",
             "indent": ["error", 4],
             "quotes": ["error", "single"],

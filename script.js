@@ -1,5 +1,3 @@
-/* eslint-env node */
-
 // Export functions for testing (only for Jest - won't run in browser)
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
