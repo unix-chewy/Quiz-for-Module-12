@@ -4,108 +4,202 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UI Critique - Software Configuration Management</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Software Configuration Management</h1>
-            <p>Enterprise CI/CD • Version Control • Quality Assurance</p>
-        </header>
-        
-        <main>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-code-branch"></i>
+                <span>Name Placeholder</span>
+            </a>
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#">Services</a>
+                <a href="#">Case Studies</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content fade-in">
+                <h1>Software Configuration Management</h1>
+                <p>Enterprise CI/CD • Version Control • Quality Assurance</p>
+                <div class="header-badge">Professional UI/UX Analysis</div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- UI Critique Section -->
             <section class="ugly-ui-section">
-                <div class="section-header">
+                <div class="section-header fade-in">
                     <h2>UI/UX Analysis: gpsGuide Case Study</h2>
                     <div class="divider"></div>
+                    <p>Transforming poor user experiences into intuitive, professional interfaces</p>
                 </div>
                 
                 <div class="ui-critique">
-                    <div class="screenshot-container">
+                    <div class="screenshot-container fade-in">
                         <div class="image-wrapper">
-                            <img src="/assets/ugly-ui.png" alt="Pacific Northwest Maryland ugly-UI" class="ugly-ui-image">
+                            <img src="assets/ugly-ui.png" alt="Pacific Northwest Maryland ugly-UI" class="ugly-ui-image">
+                            <div class="image-badge">Needs Improvement</div>
                         </div>
+                        <p class="caption">Original interface with multiple UX issues</p>
                     </div>
                     
-                    <div class="critique-card">
-                        <div class="card-header bad">
-                            <h3>❌ Critical UX Failures</h3>
+                    <div class="critique-cards">
+                        <div class="critique-card bad fade-in delay-1">
+                            <div class="card-header">
+                                <div class="card-icon bad">
+                                    <i class="fas fa-times"></i>
+                                </div>
+                                <h3>Critical UX Failures</h3>
+                            </div>
+                            <ul>
+                                <li><strong>Confusing Branding:</strong> "Pacific Northwest Maryland" geographic contradiction</li>
+                                <li><strong>Poor Visual Hierarchy:</strong> No clear categories or grouping of products</li>
+                                <li><strong>Inconsistent Formatting:</strong> Mixed bullet styles and random line breaks</li>
+                                <li><strong>Unprofessional Presentation:</strong> Looks like raw notes instead of designed interface</li>
+                                <li><strong>No Visual Elements:</strong> Pure text with no images, icons, or color</li>
+                                <li><strong>Weak Information Architecture:</strong> Medical products scattered without logical order</li>
+                                <li><strong>Missing Navigation:</strong> No search functionality despite "Search for X-Ray Products" header</li>
+                                <li><strong>Poor Readability:</strong> Dense text blocks with inadequate spacing</li>
+                            </ul>
                         </div>
-                        <ul>
-                            <li><strong>Confusing Branding:</strong> "Pacific Northwest Maryland" geographic contradiction</li>
-                            <li><strong>Poor Visual Hierarchy:</strong> No clear categories or grouping of products</li>
-                            <li><strong>Inconsistent Formatting:</strong> Mixed bullet styles and random line breaks</li>
-                            <li><strong>Unprofessional Presentation:</strong> Looks like raw notes instead of designed interface</li>
-                            <li><strong>No Visual Elements:</strong> Pure text with no images, icons, or color</li>
-                            <li><strong>Weak Information Architecture:</strong> Medical products scattered without logical order</li>
-                            <li><strong>Missing Navigation:</strong> No search functionality despite "Search for X-Ray Products" header</li>
-                            <li><strong>Poor Readability:</strong> Dense text blocks with inadequate spacing</li>
-                        </ul>
-                    </div>
 
-                    <div class="critique-card">
-                        <div class="card-header good">
-                            <h3>✅ Proposed Solutions</h3>
+                        <div class="critique-card good fade-in delay-2">
+                            <div class="card-header">
+                                <div class="card-icon good">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <h3>Proposed Solutions</h3>
+                            </div>
+                            <ul>
+                                <li><strong>Clear Brand Identity:</strong> Resolve geographic confusion with proper company name</li>
+                                <li><strong>Visual Product Categories:</strong> Group related items with icons and card-based layout</li>
+                                <li><strong>Implement Actual Search:</strong> Functional search bar with filters and suggestions</li>
+                                <li><strong>Professional Typography:</strong> Consistent hierarchy with proper headings and spacing</li>
+                                <li><strong>Product Imagery:</strong> Add relevant images for each medical equipment category</li>
+                                <li><strong>Grid Layout:</strong> Organized product display with clear categories (Protective Gear, Test Tools, etc.)</li>
+                                <li><strong>Color & Branding:</strong> Professional color scheme reflecting medical/industrial sector</li>
+                                <li><strong>Mobile Responsive:</strong> Adaptive design for different screen sizes</li>
+                            </ul>
                         </div>
-                        <ul>
-                            <li><strong>Clear Brand Identity:</strong> Resolve geographic confusion with proper company name</li>
-                            <li><strong>Visual Product Categories:</strong> Group related items with icons and card-based layout</li>
-                            <li><strong>Implement Actual Search:</strong> Functional search bar with filters and suggestions</li>
-                            <li><strong>Professional Typography:</strong> Consistent hierarchy with proper headings and spacing</li>
-                            <li><strong>Product Imagery:</strong> Add relevant images for each medical equipment category</li>
-                            <li><strong>Grid Layout:</strong> Organized product display with clear categories (Protective Gear, Test Tools, etc.)</li>
-                            <li><strong>Color & Branding:</strong> Professional color scheme reflecting medical/industrial sector</li>
-                            <li><strong>Mobile Responsive:</strong> Adaptive design for different screen sizes</li>
-                        </ul>
                     </div>
                 </div>
             </section>
             
+            <!-- Tech Demo Section -->
             <section class="tech-demo">
-                <div class="section-header">
+                <div class="section-header fade-in">
                     <h2>Technical Implementation</h2>
                     <div class="divider"></div>
+                    <p>Enterprise-grade software configuration management pipeline</p>
                 </div>
                 
-                <div class="demo-card">
-                    <p class="demo-intro">Enterprise-grade software configuration management pipeline</p>
+                <div class="demo-card fade-in delay-1">
+                    <p class="demo-intro">Our comprehensive SCM solution ensures quality at every stage of development</p>
                     
                     <div class="feature-grid">
-                        <div class="feature-item">
-                            <span class="feature-icon">🌐</span>
+                        <div class="feature-item fade-in delay-1">
+                            <div class="feature-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
                             <span>GitHub Pages Hosting</span>
+                            <small>Secure and scalable deployment</small>
                         </div>
-                        <div class="feature-item">
-                            <span class="feature-icon">🔁</span>
+                        <div class="feature-item fade-in delay-2">
+                            <div class="feature-icon">
+                                <i class="fas fa-sync-alt"></i>
+                            </div>
                             <span>CI/CD Pipeline</span>
+                            <small>Automated testing and deployment</small>
                         </div>
-                        <div class="feature-item">
-                            <span class="feature-icon">🔍</span>
+                        <div class="feature-item fade-in delay-3">
+                            <div class="feature-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
                             <span>Code Quality Gates</span>
+                            <small>Enforce standards automatically</small>
                         </div>
-                        <div class="feature-item">
-                            <span class="feature-icon">🚀</span>
+                        <div class="feature-item fade-in delay-1">
+                            <div class="feature-icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
                             <span>Auto Deployment</span>
+                            <small>Seamless production releases</small>
                         </div>
                     </div>
                     
                     <div class="demo-action">
-                        <button id="demoButton" class="demo-button">Test JavaScript Execution</button>
+                        <button id="demoButton" class="demo-button">
+                            <i class="fas fa-play-circle"></i>
+                            Test JavaScript Execution
+                        </button>
                         <p id="demoMessage" class="demo-message"></p>
                     </div>
                 </div>
             </section>
-        </main>
-        
-        <footer>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
             <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-code-branch"></i>
+                    <span>SCM Pro</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Home</a>
+                    <a href="#">Services</a>
+                    <a href="#">Case Studies</a>
+                    <a href="#">About</a>
+                    <a href="#">Contact</a>
+                </div>
                 <p>SCM Demo • CI/CD with Quality Gates • UI/UX Analysis</p>
                 <p class="footer-note">Built with GitHub Actions & Automated Quality Checks</p>
             </div>
-        </footer>
-    </div>
-    
+        </div>
+    </footer>
     <script src="script.js"></script>
+
+<section class="testing-demo" style="background: #f8f9fa; padding: 60px 0; margin-top: 40px;">
+    <div class="container">
+        <div class="section-header">
+            <h2>Testing Framework Demonstration</h2>
+            <div class="divider"></div>
+            <p>Jest tests ensure code quality before deployment</p>
+        </div>
+        
+        <div class="demo-card" style="max-width: 800px;">
+            <div class="test-results">
+                <h3>Live Test Results</h3>
+                <div id="testResults" style="text-align: left; background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                    <p><strong>Test Functions Available:</strong></p>
+                    <p>✅ demoFunction() - Returns welcome message</p>
+                    <p>✅ calculateUXScore(issues) - Calculates UX score</p>
+                    <p>✅ formatUIFeedback(issue, severity) - Formats feedback</p>
+                    <p>❌ fakeFailingTest() - Intentionally fails (returns false)</p>
+                </div>
+            </div>
+            <div class="test-info" style="margin-top: 20px; padding: 15px; background: #e9ecef; border-radius: 8px;">
+                <p><strong>GitHub Actions Pipeline:</strong></p>
+                <p>1. ESLint Code Check → 2. Jest Unit Tests → 3. Deploy to GitHub Pages</p>
+                <p><em>Deployment only happens if both linting and tests pass</em></p>
+            </div>
+        </div>
+    </div>
+</section>
+
 </body>
 </html>
